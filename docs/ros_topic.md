@@ -51,6 +51,13 @@
   ```
   $ rosmsg show geometry_msgs/Twist
   ```  
+- PublishersやSubscribersを確認します。
+    ```
+    《記法》
+    $ rostopic info トピック名
+    《実例》
+    $ rostopic info /turtle1/cmd_vel
+    ```  
 
 [このページのトップへ](#)
 
