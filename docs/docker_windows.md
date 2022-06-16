@@ -33,7 +33,7 @@
 - VcXsrvをソフトウェア「XLanuch」で起動する。
   - 「Native opengl」のチェックを外す。
   - 「Disable access control」にチェックを入れる。
-  
+
 ## イメージのダウンロード
 - Ubuntu 18.04のイメージをダウンロードする。
   ```
@@ -98,6 +98,6 @@
 
 [このページのトップへ](#)
 
-[Dockerページへ](https://stl-apu.github.io/advanced_experiment_2021/docker)
+[Dockerページへ](https://stl-apu.github.io/advanced_experiment_2022/docker)
 
-[応用実験用サイトのトップへ](https://stl-apu.github.io/advanced_experiment_2021/)
+[応用実験用サイトのトップへ](https://stl-apu.github.io/advanced_experiment_2022/)
