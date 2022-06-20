@@ -39,25 +39,29 @@
 - 別のターミナルを開きます。
 - Dockerコンテナーに入ります。
 - 利用可能なトピックの一覧を確認します。トピック「/rosout」などが存在すると思います。
-  ```
-  $ rostopic list
-  ```
+```
+$ rostopic list
+```
 - トピック「/turtle1/cmd_vel」のメッセージ型を確認します。「geometry_msgs/Twist」という型であることが分かります。
-  ```
-  $ rostopic type /turtle1/cmd_vel
-  ```
+```
+$ rostopic type /turtle1/cmd_vel
+```
   - intなどの単純な型（std_msgs/Int32）も存在しますが、ROSはロボット用のソフトウェアなので、いくつかの変数がまとまった構造体のような型を利用することが多いです。
 - メッセージ型「geometry_msgs/Twist」を構成する要素を確認します。2つの3次元ベクトル（linearとangular）で構成されており、それぞれの値はfloatであることが分かります。  
+```
+$ rosmsg show geometry_msgs/Twist
+```
+  - パイプで複数のコマンドを組み合わせると便利です。
   ```
-  $ rosmsg show geometry_msgs/Twist
-  ```  
+  $ rostopic type /turtle1/cmd_vel | rosmsg show
+  ```
 - PublishersやSubscribersを確認します。
-    ```
-    《記法》
-    $ rostopic info トピック名
-    《実例》
-    $ rostopic info /turtle1/cmd_vel
-    ```  
+```
+《記法》
+$ rostopic info トピック名
+《実例》
+$ rostopic info /turtle1/cmd_vel
+```  
 
 [このページのトップへ](#)
 
