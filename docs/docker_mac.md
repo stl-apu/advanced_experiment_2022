@@ -1,12 +1,12 @@
 # Docker（Mac）
 
 ## ソフトウェアのインストール
-- Dockerのアカウントを作成し、Docker Hubにアクセスする。
+- DockerのアカウントでDocker Hubにアクセスする。
   - https://hub.docker.com/
 - Docker Desktop for Macをインストールする。
   - https://docs.docker.com/get-docker/
 - Docker.appを起動し、IDとPasswordを入力する。
-- ターミナルを起動し、Dockerコマンドが使用できるか（Dockerが起動しているか）を確認する。
+- ターミナルを起動し、コマンドdockerが実行できることを確認する。
   ```
   % docker version
   ```
@@ -23,25 +23,25 @@
   ```
   % docker pull ubuntu:18.04
   ```
-- イメージが存在するかを確認する。
+- Ubuntu 18.04のイメージが存在することを確認する。
   ```
   % docker images
   ```
 
-## コンテナーの作成
-- イメージを用いてコンテナーを作成（起動）する。nameオプションでコンテナーに対して名前（例：ubuntu）を付けておくと良い。
+## コンテナーの作成→テスト
+- イメージを用いてコンテナーを作成し、起動する。オプションnameでコンテナーに対して名前（例：ubuntu）を付けておく。
   ```
   % docker run -itd -e DISPLAY=$(hostname):0 -v ~/.Xauthority:/root/.Xauthority --name ubuntu ubuntu:18.04 /bin/bash
   ```
-- コンテナーが存在することを確認する。
+- コンテナー「ubuntu」が存在することを確認する。
   ```
   % docker ps -a
   ```
-- コンテナーに入る。
+- コンテナー「ubuntu」に入る。
   ```
   % docker exec -it ubuntu /bin/bash
   ```
-- sudoコマンドをインストールする。
+- コマンドsudoをインストールする。
   ```
   # su
   # apt update
@@ -52,34 +52,52 @@
   # sudo apt -y install gedit
   # gedit
   ```
+  - libGLに関するエラーが発生する場合は、下記のコマンドを実行する。
+    ```
+    # export LIBGL_ALWAYS_INDIRECT=1
+    ```
 - x11-appsをインストールし、実行してみる。
   ```
   # sudo apt -y install x11-apps
   # xeyes
   ```
+  - マウスカーソルを見続ける目が表示される。
 
-## コンテナーの停止
-- コンテナーを抜ける。
+## コンテナーの操作（今後のために）
+
+### コンテナーの起動
+- コンテナーを起動する。
+  ```
+  《記法》
+  $ docker start コンテナー名
+  《実例》
+  $ docker start ubuntu
+  ```
+
+### コンテナーの停止
+- コンテナーをコマンドexitで抜けてから、コンテナーを停止する。
   ```
   # exit
   ```
-- コンテナーを停止する。
   ```
-  % docker stop ubuntu
-  ```    
-
-## コンテナーの起動
-- コンテナーを起動する。
-  ```
-  % docker start ubuntu
+  《記法》
+  $ docker stop コンテナー名
+  《実例》
+  $ docker stop ubuntu
   ```
 
-## コンテナーの削除
-- コンテナーを作り直す場合は、psコマンドでコンテナーIDを確認し、rmコマンドで削除する。コンテナーを停止してから行う。
+### コンテナーの削除
+- コンテナーを作り直す場合は、まず、コマンドpsでコンテナーIDを確認する。そして、コマンドrmで削除する。コンテナーを停止してから行う。
   ```
-  % docker ps -a
-  % docker rm コンテナーID
+  $ docker ps -a
   ```
+  ```
+  《記法》
+  $ docker rm コンテナーID
+  《実例》
+  $ docker rm コンテナーID
+  ```
+
 
 [このページのトップへ](#)
 

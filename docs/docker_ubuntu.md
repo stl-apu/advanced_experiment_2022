@@ -67,7 +67,7 @@
   ```
   $ docker exec -it ubuntu /bin/bash
   ```
-- sudoコマンドをインストールする。
+- コマンドsudoをインストールする。
   ```
   # su
   # apt update
@@ -82,7 +82,7 @@
     ```
     # export LIBGL_ALWAYS_INDIRECT=1
     ```
-- x11-appsをインストールし、実行する。
+- x11-appsをインストールし、実行してみる。
   ```
   # sudo apt -y install x11-apps
   # xeyes
