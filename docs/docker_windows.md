@@ -1,18 +1,17 @@
 # Docker (Windows)
 
-## コンピューターの設定確認
-- 「タスクマネージャー」を起動し、［パフォーマンス］→［CPU］から「仮想化：有効」となっていることを確認する。
+## コンピューターの設定の確認
+- 「タスクマネージャー」を起動し、［パフォーマンス］→［CPU］から［仮想化：有効］となっていることを確認する。
   - 有効にする方法はコンピューターのメーカーや機種によって異なるので、自分で調べる。
-- 「コントロールパネル」を起動し、［プログラム］→［Windowsの機能の有効化または無効化］から［Hyper-V］にチェックが入っていることを確認する。
-- 「コントロールパネル」を起動し、［プログラム］→［Windowsの機能の有効化または無効化］から［Linux用Windowsサブシステム（Windows Subsystem for Linux）］にチェックが入っていることを確認する。
+- 「コントロールパネル」を起動し、［プログラム］→［Windowsの機能の有効化または無効化］を開き、［Hyper-V］と［Linux用Windowsサブシステム（Windows Subsystem for Linux）］にチェックが入っていることを確認する。
 
 ## ソフトウェアのインストール
-- Dockerのアカウントを作成し、Docker Hubにアクセスする。
+- DockerのアカウントでDocker Hubにアクセスする。
   - https://hub.docker.com/
 - Docker Desktop for Windowsをインストールする。
   - https://docs.docker.com/get-docker/
-- Docker.appを起動し、IDとPasswordを入力する。
-- コマンドプロンプトを起動し、Dockerコマンドが使用できるか（Dockerが起動しているか）を確認する。
+- Docker Desktop.exeを起動し、IDとPasswordを入力する。
+- コマンドプロンプトを起動し、コマンドdockerが実行できることを確認する。
   ```
   > docker version
   ```
@@ -39,24 +38,28 @@
   ```
   > docker pull ubuntu:18.04
   ```
-- イメージが存在することを確認する。
+- Ubuntu 18.04のイメージが存在することを確認する。
   ```
   > docker images
   ```
 
-## コンテナーの作成
-- ホストのIPアドレスを指定しつつ、イメージを用いてコンテナーを作成（起動）する。nameオプションでコンテナーに対して名前（例：ubuntu）を付けておく。
+## コンテナーの作成→テスト
+- ホストのIPアドレスを指定しつつ、イメージを用いてコンテナーを作成し、起動する。オプションnameでコンテナーに対して名前（例：ubuntu）を付けておく。
   ```
   《記法》
   > docker run -itd -e DISPLAY=IPアドレス:0.0 -v ~/.Xauthority:/root/.Xauthority --name コンテナー名 イメージ名 /bin/bash
   《実例》
   > docker run -itd -e DISPLAY=172.31.2.23:0.0 -v ~/.Xauthority:/root/.Xauthority --name ubuntu ubuntu:18.04 /bin/bash
   ```
-- コンテナーに入る。
+- コンテナー「ubuntu」が存在することを確認する。
+  ```
+  > docker ps -a
+  ```
+- コンテナー「ubuntu」に入る。
   ```
   > docker exec -it ubuntu /bin/bash
   ```
-- sudoコマンドをインストールする。
+- コマンドsudoをインストールする。
   ```
   # su
   # apt update
@@ -67,32 +70,49 @@
   # sudo apt -y install gedit
   # gedit
   ```
+  - libGLに関するエラーが発生する場合は、下記のコマンドを実行する。
+    ```
+    # export LIBGL_ALWAYS_INDIRECT=1
+    ```
 - x11-appsをインストールし、実行してみる。
   ```
   # sudo apt -y install x11-apps
   # xeyes
   ```
+  - マウスカーソルを見続ける目が表示される。
 
-## コンテナーの停止
-- コンテナーを抜ける。
-  ```
-  # exit
-  ```
-- コンテナーを停止する。
-  ```
-  > docker stop ubuntu
-  ```
+## コンテナーの操作（今後のために）
 
-## コンテナーの起動
+### コンテナーの起動
 - コンテナーを起動する。
   ```
+  《記法》
+  > docker start コンテナー名
+  《実例》
   > docker start ubuntu
   ```
 
-## コンテナーの削除
-- コンテナーを作り直す場合は、psコマンドでコンテナーIDを確認し、rmコマンドで削除する。コンテナーを停止してから行う。
+### コンテナーの停止
+- コンテナーをコマンドexitで抜けてから、コンテナーを停止する。
+  ```
+  # exit
+  ```
+  ```
+  《記法》
+  > docker stop コンテナー名
+  《実例》
+  > docker stop ubuntu
+  ```
+
+### コンテナーの削除
+- コンテナーを作り直す場合は、まず、コマンドpsでコンテナーIDを確認する。そして、コマンドrmで削除する。コンテナーを停止してから行う。
   ```
   > docker ps -a
+  ```
+  ```
+  《記法》
+  > docker rm コンテナーID
+  《実例》
   > docker rm コンテナーID
   ```
 

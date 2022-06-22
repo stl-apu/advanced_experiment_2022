@@ -69,9 +69,9 @@
 - コンテナーを起動する。
   ```
   《記法》
-  $ docker start コンテナー名
+  % docker start コンテナー名
   《実例》
-  $ docker start ubuntu
+  % docker start ubuntu
   ```
 
 ### コンテナーの停止
@@ -81,21 +81,21 @@
   ```
   ```
   《記法》
-  $ docker stop コンテナー名
+  % docker stop コンテナー名
   《実例》
-  $ docker stop ubuntu
+  % docker stop ubuntu
   ```
 
 ### コンテナーの削除
 - コンテナーを作り直す場合は、まず、コマンドpsでコンテナーIDを確認する。そして、コマンドrmで削除する。コンテナーを停止してから行う。
   ```
-  $ docker ps -a
+  % docker ps -a
   ```
   ```
   《記法》
-  $ docker rm コンテナーID
+  % docker rm コンテナーID
   《実例》
-  $ docker rm コンテナーID
+  % docker rm コンテナーID
   ```
 
 
