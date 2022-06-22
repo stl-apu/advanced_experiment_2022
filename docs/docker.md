@@ -1,13 +1,13 @@
 # Docker
 
 ## 解説
-- ロボットとは直接関係しません。…が、ロボットはチームで開発するので、Dockerを用いて開発します。
+- ロボットとは直接関係しません。…が、ロボットはチームで開発することが多いので、Dockerを用いて開発します。
 - 普通はLinux（Ubuntu）上で動作させます。…が、色々と設定すれば、MacやWindows上でも動かすことができます。
   - Docker Desktop（Linux Kernel）をインストールします。
-- 普通はCUIで利用します。…が、色々と設定すれば、GUIで利用することもできます。
+- 普通はCUIも用いて利用します。…が、色々と設定すれば、GUIを用いて利用することもできます。
   - X Window System（X11）を用いてホスト上にGUIを表示します。ホストにGUIの表示を依頼することを「X11 Forwarding」と言います。
-- Docker Host上でDocker Containerを動かす。
-- Docker Imageを用いてDocker Containerを作成する。
+- Docker Host上でDocker Containerを動かします。
+- Docker Imageを用いてDocker Containerを作成します。
 
 ## 演習
 - [Ubuntu](https://stl-apu.github.io/advanced_experiment_2022/docker_ubuntu)

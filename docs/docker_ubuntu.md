@@ -6,21 +6,21 @@
   $ sudo apt update
   $ sudo apt -y install docker.io
   ```
-- Dockerが実行できることを確認する。
+- コマンドdockerが実行できることを確認する。
   ```
   $ docker version
   ```
 
 ## ソケット通信の設定
-- dockerグループにユーザーを追加する。
+- グループ「docker」にユーザーを追加する。
   ```
   $ sudo gpasswd -a $USER docker
   ```
-- ソケット通信に関するファイルの所有者を変更する。
+- ソケット通信に関するファイルの所有者をグループ「docker」に変更する。
   ```
   $ sudo chgrp docker /var/run/docker.sock
   ```
-- dockerサービスを再起動する。
+- サービスDockerを再起動する。
   ```
   $ sudo service docker restart
   ```
@@ -28,18 +28,18 @@
   ```
   $ sudo reboot
   ```
-- 接続が許可されているクライアント（Docker Container）として『LOCAL:』があることを確認する。
+- 接続が許可されているクライアント（Docker Container）として「LOCAL:」があることを確認する。
   ```
   $ xhost
   access control enabled, only authorized clients can connect
   LOCAL:
   SI:localuser:ユーザー名
   ```
-  - 『LOCAL:』が無い場合は追加する。
+  - 「LOCAL:」が無い場合は追加する。
     ```
     $ xhost +local:
     ```
-- dockerサービスを起動する。
+- 改めてDockerサービスを起動する。
   ```
   $ sudo service docker start
   ```
@@ -49,21 +49,21 @@
   ```
   $ docker pull ubuntu:18.04
   ```
-- イメージが存在することを確認する。
+- Ubuntu 18.04のイメージが存在することを確認する。
   ```
   $ docker images
   ```
 
-## コンテナーの作成
-- イメージを用いてコンテナーを作成（起動）する。nameオプションでコンテナーに対して名前（例：ubuntu）を付けておく。
+## コンテナーの作成→テスト
+- イメージを用いてコンテナーを作成し、起動する。オプションnameでコンテナーに対して名前（例：ubuntu）を付けておく。
   ```
   $ docker run -itd --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name ubuntu ubuntu:18.04 /bin/bash
   ```
-- コンテナーが存在することを確認する。
+- コンテナー「ubuntu」が存在することを確認する。
   ```
   $ docker ps -a
   ```
-- コンテナーに入る。
+- コンテナー「ubuntu」に入る。
   ```
   $ docker exec -it ubuntu /bin/bash
   ```
@@ -78,36 +78,49 @@
   # sudo apt -y install gedit
   # gedit
   ```
-  - libGLに関するエラーへの対処
+  - libGLに関するエラーが発生する場合は、下記のコマンドを実行する。
     ```
     # export LIBGL_ALWAYS_INDIRECT=1
     ```
-- x11-appsをインストールし、実行してみる。
+- x11-appsをインストールし、実行する。
   ```
   # sudo apt -y install x11-apps
   # xeyes
   ```
+  - マウスカーソルを見続ける目が表示される。
 
-## コンテナーの停止
-- コンテナーを抜ける。
-  ```
-  # exit
-  ```
-- コンテナーを停止する。
-  ```
-  $ docker stop ubuntu
-  ```
+## コンテナーの操作（今後のために）
 
-## コンテナーの起動
+### コンテナーの起動
 - コンテナーを起動する。
   ```
+  《記法》
+  $ docker start コンテナー名
+  《実例》
   $ docker start ubuntu
   ```
 
-## コンテナーの削除
-- コンテナーを作り直す場合は、psコマンドでコンテナーIDを確認し、rmコマンドで削除する。コンテナーを停止してから行う。
+### コンテナーの停止
+- コンテナーをコマンドexitで抜けてから、コンテナーを停止する。
+  ```
+  # exit
+  ```
+  ```
+  《記法》
+  $ docker stop コンテナー名
+  《実例》
+  $ docker stop ubuntu
+  ```
+
+### コンテナーの削除
+- コンテナーを作り直す場合は、まず、コマンドpsでコンテナーIDを確認する。そして、コマンドrmで削除する。コンテナーを停止してから行う。
   ```
   $ docker ps -a
+  ```
+  ```
+  《記法》
+  $ docker rm コンテナーID
+  《実例》
   $ docker rm コンテナーID
   ```
 
