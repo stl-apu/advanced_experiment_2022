@@ -2,17 +2,15 @@
 - Ubuntu 18.04（Bionic Beaver）に対応したROS 18.04（Melodic Morenia）をインストールします。
 
 ## ROSのインストール
-- 必要なコマンドを予めインストールしておきます。
+- 必要なコマンドを予めインストールしておきます。前述のコマンドsudoも必要です。
   ```
-  《sudoコマンド》
   # su
   # apt update
-  # apt -y install sudo
-  《lsb_releaseコマンド》
+  《lsb_release》
   # sudo apt -y install lsb-release
-  《curlコマンド》
+  《curl》
   # sudo apt -y install curl
-  《gnupgコマンド》
+  《gnupg》
   # sudo apt -y install gnupg
   ```
 - 下記のコマンドを1行ずつコピー＆ペーストし、実行します。
@@ -30,10 +28,12 @@
   ```
 
 ## 環境変数の確認
-- ROSが正しくインストールできたかどうかを確認します。  
+- ROSが正常にインストールできたことを確認します。  
   ```
   # printenv | grep ROS
-  ↓正常にインストールできていれば、下記のように出力されます。
+  ```
+  - 正常にインストールできていれば、下記のように出力されます。
+  ```
   ROS_ETC_DIR=/opt/ros/melodic/etc/ros
   ROS_ROOT=/opt/ros/melodic/share/ros
   ROS_MASTER_URI=http://localhost:11311
@@ -58,7 +58,7 @@
   ```
 
 ## 参考2
-- ROSがインストールされたDockerイメージも存在します。
+- ROSが予めインストールされたDockerイメージも存在します。
 - 下記のコマンドでイメージをダウンロードすることができます。
   ```
   $ docker pull ros:melodic-robot-bionic

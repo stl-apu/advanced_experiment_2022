@@ -7,14 +7,14 @@
   ```
 
 ## プログラムのビルド
-- catkin_makeコマンドを用いてビルドします。この時点では何もプログラムが無いので、すぐに100％になり、ビルドが完了すると思います。
+- コマンドcatkin_makeを用いてビルドします。この時点では何もプログラムが無いので、すぐに100％になり、ビルドが完了します。
   ```
   # cd ~/catkin_ws
   # catkin_make
   # echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
   # source ~/.bashrc
   ```
-- 正常にビルドできていれば、下記のコマンドで「~/catkin_ws/devel」に移動します。
+- 正常にビルドできていれば、コマンドroscdで「~/catkin_ws/devel」に移動します。
   ```
   # roscd
   ```
