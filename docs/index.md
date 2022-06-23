@@ -7,7 +7,7 @@
 ### Week 0
 - [事前準備](https://stl-apu.github.io/advanced_experiment_2022/preparetions)
 
-### Week 1（準備中）
+### Week 1
 - [Docker](https://stl-apu.github.io/advanced_experiment_2022/docker)
 - [ROS Installation](https://stl-apu.github.io/advanced_experiment_2022/ros_installation)
 - [ROS Build](https://stl-apu.github.io/advanced_experiment_2022/ros_build)

@@ -11,7 +11,7 @@
   ```
 - ページ「ROS Build」を参考にcatkin_wsなどのディレクトリーを作成する。
 
-## 初回設定
+## Gitの設定
 - gitをインストールする。
   ```
   $ sudo apt -y install git
@@ -25,30 +25,70 @@
   《記法》
   $ git config --global user.name "名前"
   $ git config --global user.email "メールアドレス"
-
   《実例》
   $ git config --global user.name "Takuo Suzuki"
   $ git config --global user.email "takuo.suzuki@ist.aichi-pu.ac.jp"
   ```
+- 名前とメールアドレスが設定されていることを確認する。
+  ```
+  $ git config -l
+  ```
+
+## GitHubの設定
+- clone、pull、pushなどを実行できるよう、SSH接続（鍵認証）の設定を行います。
+- 下記のディレクトリーにid_rsaとid_rsa.pubが存在することを確認します。
+  ```
+  $ ls ~/.ssh
+  ```
+  - 存在しない場合は作成します。パスフレーズは無しで大丈夫です。
+    ```
+    $ cd ~/.ssh
+    $ ssh-keygen -t rsa
+    ```
+    - コマンドssh-keygenが無い場合はパッケージをインストールする。
+      ```
+      $ sudo apt update
+      $ sudo apt -y install openssh-server
+      ```
+- 下記のコマンドで公開鍵（id_rsa.pub）の内容をクリップボードにコピーする。
+  ```
+  $ cat ~/.ssh/id_rsa.pub | xsel -bi
+  ```
+  - コマンドxselが無い場合はパッケージをインストールする。
+    ```
+    $ sudo apt update
+    $ sudo apt -y install xsel
+    ```
+- GitHubのウェブサイトを開く。
+  - https://github.com/settings/ssh
+- ［Settings］→［SSH and GPG keys］へと進み、［SSH keys］の所にあるボタン「New SSH key」を押す。
+- 公開鍵の内容を記入欄「Key」の中にペーストし、登録する。
+  - 記入欄「Title」にはコンピューター名などを記入する。
+- 正常に接続できるかを確認する。
+  ```
+  $ ssh -T git@github.com
+  ```
+  - 「You've successfully authenticated, but GitHub does not provide shell access.」と表示されればOK！
+  - 「Are you sure you want to continue connecting (yes/no/[fingerprint])?」と聞かれた場合は「yes」と回答する。
 
 ## 全体ダウンロード
 - ROSでは、プログラムをワークスペースのsrcに置くので、ディレクトリーを移動する。
   ```
   $ cd ~/catkin_ws/src
   ```
-- cloneサブコマンドでプログラムをコピー（初回ダウンロード）する。
+- サブコマンドcloneでプログラムをコピー（初回ダウンロード）する。
   ```
-  $ git clone https://github.com/stl-apu/advanced_experiment_2021.git
+  $ git clone git@github.com:stl-apu/advanced_experiment_2022.git
   ```
-- lsコマンドでディレクトリーadvanced_experiment_2021が存在することを確認する。
+- コマンドlsでディレクトリー「advanced_experiment_2022」が存在することを確認する。
   ```
   $ ls
   ```
 
 ## 差分アップロード
-- ディレクトリーadvanced_experiment_2021に移動する。
+- ディレクトリー「advanced_experiment_2022」に移動する。
   ```
-  $ cd advanced_experiment_2021
+  $ cd advanced_experiment_2022
   ```
 - ブランチの一覧を確認する。
   ```
@@ -67,15 +107,14 @@
   ```
   $ git status
   ```
-- 自分用のブランチを作成しつつ、移動する。
+- 自分用のブランチ（feature/学籍番号）を作成しながら移動する。
   ```
   《記法》
-  $ git checkout -b feature/学籍番号
-
+  $ git checkout -b ブランチ名
   《実例》
-  $ git checkout -b feature/2019311000
+  $ git checkout -b feature/2020311000
   ```
-- geditなどのテキストエディターでtest.txtを開き、「Local 1」と追記し、保存する。
+- geditでtest.txtを作成し、「Local 1」とだけ追記し、保存する。
   ```
   $ gedit test.txt
   ```
@@ -91,11 +130,14 @@
   《実例》
   $ git commit -m "Update test.txt"
   ```
-- pushする。GitHubのユーザー名とパスワードを入力する。
+- pushする。
   ```
-  $ git push origin feature/2019311000
+  《記法》
+  $ git push origin ブランチ名
+  《実例》
+  $ git push origin feature/2020311000
   ```
-- GitHubのウェブサイトを開き、ブランチ「feature/2019311000」を確認する。「Local 1」が反映されていたらOK！
+- GitHubのウェブサイトを開き、ブランチ「feature/2020311000」を確認する。「Local 1」が反映されていたらOK！
 
 ## 競合の解消
 - 他のメンバーによってTXTファイルが編集されたことを再現するため、GitHubのウェブサイト上でリモート側を編集する。
@@ -161,33 +203,7 @@ $ gedit .git/config
 ```
 
 
-## 付録1：SSHの設定
-- どのディレクトリーで行っても大丈夫です。
-- 下記のディレクトリーにid_rsaとid_rsa.pubが存在することを確認します。
-  ```
-  $ ls ~/.ssh
-  ```
-  - 存在しない場合は作成します。パスフレーズは無しで大丈夫です。
-    ```
-    $ ssh-keygen -t rsa
-    ```
-    - ssh-keygenコマンドが無い場合はパッケージをインストールする。
-      ```
-      $ sudo apt update
-      $ sudo apt -y install openssh-server
-      ```
-- 下記のコマンドで公開鍵の内容をクリップボードにコピーする。
-  ```
-  $ cat ~/.ssh/id_rsa.pub | xsel --clipboard --input
-  ```
-  - xselコマンドが無い場合はパッケージをインストールする。
 
-    ```
-    $ sudo apt update
-    $ sudo apt -y install xsel
-    ```
-- GitHubのウェブサイトを開き、［Settings］→［SSH and GPG keys］→［SSH keys］へ進み、ボタン「New SSH key」を押す。
-- 公開鍵の内容を記入欄「key」の中にペーストし、登録する。
 
 
 ## 付録2：Gitクライアント
