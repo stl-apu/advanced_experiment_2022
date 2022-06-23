@@ -33,6 +33,7 @@
   ```
   $ git config -l
   ```
+  - Gitの設定を変更したい時は再度`$ git config`を編集する。
 
 ## GitHubの設定
 - clone、pull、pushなどを実行できるよう、SSH接続（鍵認証）の設定を行います。
@@ -114,7 +115,7 @@
   《実例》
   $ git checkout -b feature/2020311000
   ```
-- geditでtest.txtを作成し、「Local 1」とだけ追記し、保存する。
+- テキストエディター（geditなど）でtest.txtを開き、「Local 1」と追記し、保存する。
   ```
   $ gedit test.txt
   ```
@@ -140,9 +141,9 @@
 - GitHubのウェブサイトを開き、ブランチ「feature/2020311000」を確認する。「Local 1」が反映されていたらOK！
 
 ## 競合の解消
-- 他のメンバーによってTXTファイルが編集されたことを再現するため、GitHubのウェブサイト上でリモート側を編集する。
+- 他のメンバーによってTXTファイルが編集されたことを再現するため、GitHubのウェブサイト上でリモート側のファイルを編集する。
 - test.txtを選択し、ペンの形のアイコン（Edit file）から編集する。「Remote 1」と追記し、Commit（保存）する。
-- 再度、ローカル側でテキストエディターでtest.txtを開き、「Local 2」と追記し、保存する。
+- 再度、ローカル側でテキストエディター（geditなど）でtest.txtを開き、「Local 2」と追記し、保存する。
   ```
   $ gedit test.txt
   ```
@@ -154,23 +155,24 @@
   ```
   $ git commit -m "Update test.txt"
   ```
-- Pushする。エラーが発生する。
+- Pushすると、エラーが発生する。
   ```
-  $ git push origin feature/2019311000
+  $ git push origin feature/2020311000
   ```
   - PullしてからでないとPushできない。
-- Pullする。別のエラーが発生する。
+- Pullすると、別のエラーが発生する。
   ```
-  $ git pull origin feature/2019311000
+  $ git pull origin feature/2020311000
   ```
   - 複数人が同時に同じファイルを編集すると、競合（conflict）が発生する。
-- テキストエディターでtest.txtを開き、競合を解消し、保存する。
+- テキストエディター（geditなど）でtest.txtを開き、競合を解消し、保存する。
   ```
   $ gedit test.txt
   ```
   - 今回は「Local 2」の方を残すことにします。
+    - 実際には研究開発グループ内で修正方針を検討する必要があります。
   - 「<<<」や「>>>」などの記号（競合マーカー／コンフリクトマーカー）は削除します。
-  - 最終的なファイルは下記のとおりとなります。
+  - 最終的に、ファイルの内容は下記の通りとなります。
   ```
   Test
   Local 1
@@ -180,36 +182,22 @@
   ```
   $ git add test.txt
   $ git commit -m "Update test.txt"
-  $ git push origin feature/2019311000
+  $ git push origin feature/2020311000
   ```
-- ブランチを「main」に戻しておく。
+- ブランチ「main」に戻しておく。
   ```
   $ git checkout main
   ```
 
-
-## ブランチの結合
-- ブランチmaster（main）が本番環境となります。
-- feature → develop → masterと、プログラムをMergeサブコマンドで結合する必要があります。
+## 補足1：ブランチの結合
+- ブランチmain（master）が本番環境となります。
+- feature → develop → masterと、プログラムをサブコマンドMergeで結合する必要があります。
 - 研究開発リーダー（責任者）が行う作業なので、応用実験では割愛します。
-  - 将来、リーダーになりたい人は学習を続けてください。
+- 将来、研究開発リーダーになりたい人は学習を続けてください。
 
-
-## 設定変更
-- Gitの設定を変更したいときはconfigファイルを開く。
-```
-$ cd ~/catkin_ws/src/advanced_experiment_2021
-$ gedit .git/config
-```
-
-
-
-
-
-## 付録2：Gitクライアント
-- GitHub Desktopを使えば、GUIで管理できる。
-- Git機能を搭載したソフトウェアも多い。
-
+## 補足2：Gitクライアント
+- GitHub Desktopを使えば、GUIで管理できます。
+- Git機能を搭載したソフトウェアも多いです。Atomなど…。
 
 [このページのトップへ](#)
 
