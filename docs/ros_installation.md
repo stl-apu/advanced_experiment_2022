@@ -4,8 +4,7 @@
 ## ROSのインストール
 - 必要なコマンドを予めインストールしておきます。前述のコマンドsudoも必要です。
   ```
-  # su
-  # apt update
+  # sudo apt update
   《lsb_release》
   # sudo apt -y install lsb-release
   《curl》
