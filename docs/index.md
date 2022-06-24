@@ -6,6 +6,7 @@
 ## 実験内容
 ### Week 0
 - [事前準備](https://stl-apu.github.io/advanced_experiment_2022/preparetions)
+- [予習用動画](https://youtu.be/H_ZcbYlYff4)
 
 ### Week 1
 - [Docker](https://stl-apu.github.io/advanced_experiment_2022/docker)
