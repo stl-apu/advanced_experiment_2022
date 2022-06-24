@@ -61,6 +61,8 @@
   トピック名/変数名
   《実例》
   /turtle1/cmd_vel/linear/x
+  や
+  /turtle1/cmd_vel/angular/z
 ```
 - ボタン「+」で表示したいTopicをグラフに追加します。
 - キーボード入力に合わせてグラフが更新されます。
@@ -75,8 +77,30 @@
   $ rqt
   ```
 - 次に、［Plugins］→［Robot Tools］からでRobot Steeringを追加します。
-- /turtle1/cmd_velと入力し、スライダーで値を変化させます。値が変化すると、自動的に出版します。
+- ボックスに/turtle1/cmd_velと入力し、スライダーで値を変化させます。値が変化すると、自動的に出版されます。
 
+### 6つ目：マウスで操作
+- マウスで操作することもできます。
+- シミュレーターを一旦終了し、必要なソフトウェアをインストールします。
+- teleop_toolsというROSパッケージをcloneします。
+  ```
+  $ cd ~/catkin_ws/src
+  $ git clone git@github.com:ros-teleop/teleop_tools.git
+  ```
+- ROS2版が標準となっているので、ROS1版に切り替えます。
+  ```
+  $ git checkout kinetic-devel
+  ```
+- ビルドします。
+  ```
+  $ cd ~/catkin_ws
+  $ catkin_make
+  $ source ~/catkin_ws/devel/setup.bash
+  ```
+- ROSマスター（1つ目）やシミュレーター（2つ目）を再起動し、マウスで操作するためのROSノードを起動します。
+  ```
+  $ rosrun mouse_teleop mouse_teleop.py mouse_vel:=/turtle1/cmd_vel
+  ```
 
 [このページのトップへ](#)
 
