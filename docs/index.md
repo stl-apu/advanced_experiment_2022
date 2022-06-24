@@ -19,8 +19,8 @@
 - [ROS Node](https://stl-apu.github.io/advanced_experiment_2022/ros_node)
 - [ROS Simulation](https://stl-apu.github.io/advanced_experiment_2022/ros_simulation)
 - [ROS Parameter](https://stl-apu.github.io/advanced_experiment_2022/ros_parameter)
-- [ROS Launch](https://stl-apu.github.io/advanced_experiment_2022/ros_launch)
 
 ### Week 3（準備中）
+- [ROS Launch](https://stl-apu.github.io/advanced_experiment_2022/ros_launch)
 - [ROS TurtleBot](https://stl-apu.github.io/advanced_experiment_2022/ros_turtlebot)
 - [ROS HSR](https://stl-apu.github.io/advanced_experiment_2022/ros_hsr)
