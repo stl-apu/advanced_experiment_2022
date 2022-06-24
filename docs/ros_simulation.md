@@ -82,7 +82,7 @@
 ### 6つ目：マウスで操作
 - マウスで操作することもできます。
 - シミュレーターを一旦終了し、必要なソフトウェアをインストールします。
-- teleop_toolsというROSパッケージをcloneします。
+- ROSパッケージ「teleop_tools」をcloneします。
   ```
   $ cd ~/catkin_ws/src
   $ git clone git@github.com:ros-teleop/teleop_tools.git
@@ -97,10 +97,11 @@
   $ catkin_make
   $ source ~/catkin_ws/devel/setup.bash
   ```
-- ROSマスター（1つ目）やシミュレーター（2つ目）を再起動し、マウスで操作するためのROSノードを起動します。
+- ROSマスター（1つ目）やシミュレーター（2つ目）を再度実行し、マウスで操作するためのROSノードを起動します。
   ```
   $ rosrun mouse_teleop mouse_teleop.py mouse_vel:=/turtle1/cmd_vel
   ```
+- ドラッグにより並進移動量と回転移動量を出版することができます。
 
 [このページのトップへ](#)
 
