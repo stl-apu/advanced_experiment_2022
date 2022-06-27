@@ -22,3 +22,6 @@ target_link_libraries(talker ${catkin_LIBRARIES})
 
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
+
+add_executable(talker_with_parameter src/talker_with_parameter.cpp)
+target_link_libraries(talker_with_parameter ${catkin_LIBRARIES})
