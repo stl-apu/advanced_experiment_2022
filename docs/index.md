@@ -14,7 +14,7 @@
 - [ROS Build](https://stl-apu.github.io/advanced_experiment_2022/ros_build)
 - [ROS Topic](https://stl-apu.github.io/advanced_experiment_2022/ros_topic)
 
-### Week 2（準備中）
+### Week 2
 - [Git](https://stl-apu.github.io/advanced_experiment_2022/git)
 - [ROS Node](https://stl-apu.github.io/advanced_experiment_2022/ros_node)
 - [ROS Simulation](https://stl-apu.github.io/advanced_experiment_2022/ros_simulation)
