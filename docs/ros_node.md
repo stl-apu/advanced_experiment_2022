@@ -1,7 +1,7 @@
 # ROSノード
 
 ## ROSノードを用いたトピック通信
-- 応用実験用のROSパッケージ「advanced_experiment_2021」をcloneしたあとに実行してください。
+- 応用実験用のROSパッケージ「advanced_experiment_2022」をcloneしたあとに実行してください。
 
 ## 準備
 - ROSパッケージをcatkin_makeコマンドを用いてビルドします。
