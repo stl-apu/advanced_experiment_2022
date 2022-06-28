@@ -22,5 +22,6 @@
 
 ### Week 3（準備中）
 - [ROS Launch](https://stl-apu.github.io/advanced_experiment_2022/ros_launch)
+- [ROS Bag](https://stl-apu.github.io/advanced_experiment_2022/ros_bag)
 - [ROS TurtleBot](https://stl-apu.github.io/advanced_experiment_2022/ros_turtlebot)
 - [ROS HSR](https://stl-apu.github.io/advanced_experiment_2022/ros_hsr)
