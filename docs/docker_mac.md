@@ -95,7 +95,7 @@
   《記法》
   % docker rm コンテナーID
   《実例》
-  % docker rm コンテナーID
+  % docker rm 81ae65b0ac4296538f66d4037b18d36a2cc530b926eb0c9d3bce4a5a622ef003
   ```
 
 
