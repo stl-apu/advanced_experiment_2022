@@ -47,31 +47,32 @@
 ## イメージのダウンロード
 - Ubuntu 18.04のイメージをダウンロードする。
   ```
-  $ docker pull ubuntu:18.04
+  $ docker image pull ubuntu:18.04
   ```
 - Ubuntu 18.04のイメージが存在することを確認する。
   ```
-  $ docker images
+  $ docker image ls
   ```
 
 ## コンテナーの作成→テスト
 - イメージを用いてコンテナーを作成し、起動する。オプションnameでコンテナーに対して名前（例：ubuntu）を付けておく。
   ```
-  $ docker run -itd --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name ubuntu ubuntu:18.04 /bin/bash
+  $ docker container run -itd --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name ubuntu ubuntu:18.04 /bin/bash
   ```
 - コンテナー「ubuntu」が存在することを確認する。
   ```
-  $ docker ps -a
+  $ docker container ls -a
   ```
 - コンテナー「ubuntu」に入る。
   ```
-  $ docker exec -it ubuntu /bin/bash
+  $ docker container exec -it ubuntu /bin/bash
   ```
 - コマンドsudoをインストールする。
   ```
   # su
   # apt update
   # apt -y install sudo
+  # exit
   ```
 - geditをインストールし、実行してみる。
   ```
@@ -95,9 +96,9 @@
 - コンテナーを起動する。
   ```
   《記法》
-  $ docker start コンテナー名
+  $ docker container start コンテナー名
   《実例》
-  $ docker start ubuntu
+  $ docker container start ubuntu
   ```
 
 ### コンテナーの停止
@@ -107,21 +108,21 @@
   ```
   ```
   《記法》
-  $ docker stop コンテナー名
+  $ docker container stop コンテナー名
   《実例》
-  $ docker stop ubuntu
+  $ docker container stop ubuntu
   ```
 
 ### コンテナーの削除
-- コンテナーを作り直す場合は、まず、サブコマンド`container ls`でコンテナーIDを確認する。そして、コンテナーを停止し、コマンドrmで削除する。
+- コンテナーを作り直す場合は、まず、サブコマンド`container ls`でコンテナーIDを確認する。そして、コンテナーを停止し、コマンド`container rm`で削除する。
   ```
   $ docker container ls -a --no-trunc
   ```
   ```
   《記法》
-  $ docker rm コンテナーID
+  $ docker container rm コンテナーID
   《実例》
-  $ docker rm 81ae65b0ac4296538f66d4037b18d36a2cc530b926eb0c9d3bce4a5a622ef003
+  $ docker container rm 81ae65b0ac4296538f66d4037b18d36a2cc530b926eb0c9d3bce4a5a622ef003
   ```
 
 [このページのトップへ](#)
