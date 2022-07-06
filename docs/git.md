@@ -50,7 +50,7 @@
       ```
       $ mkdir ~/.ssh
       ```
-    - コマンドssh-keygenが無い場合はパッケージをインストールする。
+    - コマンドssh-keygenが無い場合はパッケージをインストールします。
       ```
       $ sudo apt update
       $ sudo apt -y install openssh-server
