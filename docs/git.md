@@ -100,14 +100,15 @@
   $ git branch
   ```
   - mainのみが存在する。
-- ブランチ「develop」を作成する。
-  ```
-  $ git branch develop
-  ```
 - ブランチ「develop」に移動する。
   ```
   $ git checkout develop
   ```
+- ブランチの一覧を確認する。
+  ```
+  $ git branch
+  ```
+  - mainとdevelopが存在する。
 - ブランチ「develop」に移動したことを確認する。
   ```
   $ git status
