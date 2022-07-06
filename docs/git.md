@@ -104,15 +104,15 @@
   ```
   $ git checkout develop
   ```
+- ブランチ「develop」に移動したことを確認する。
+  ```
+  $ git status
+  ```
 - ブランチの一覧を確認する。
   ```
   $ git branch
   ```
   - mainとdevelopが存在する。
-- ブランチ「develop」に移動したことを確認する。
-  ```
-  $ git status
-  ```
 - 自分用のブランチ（feature/学籍番号）を作成しながら移動する。
   ```
   《記法》
