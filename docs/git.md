@@ -46,6 +46,10 @@
     $ cd ~/.ssh
     $ ssh-keygen -t rsa
     ```
+    - ディレクトリーも存在しない場合は作成します。
+  　  ```
+      $ mkdir ~/.ssh
+      ```
     - コマンドssh-keygenが無い場合はパッケージをインストールする。
       ```
       $ sudo apt update
