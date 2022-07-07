@@ -89,6 +89,7 @@
   ```
 - ROS2版が標準となっているので、ROS1版に切り替えます。
   ```
+  $ cd teleop_tools
   $ git checkout kinetic-devel
   ```
 - ビルドします。
