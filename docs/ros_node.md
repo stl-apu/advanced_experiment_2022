@@ -19,10 +19,13 @@
     ```
     《記法》
     $ export DISPLAY=IPアドレス:ディスプレイ番号.スクリーン番号
+    や
+    $ export DISPLAY=IPアドレス:ディスプレイ番号
     《実例》
     $ export DISPLAY=172.31.233.193:0.0
+    や
+    $ export DISPLAY=172.31.233.193:0
     ```
-
 
 ### 1つ目：ROSマスターの起動
 - roscoreを起動します。
