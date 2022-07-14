@@ -14,7 +14,7 @@
     % docker run -it -e DISPLAY=$(hostname):0 -v ~/.Xauthority:/root/.Xauthority --name ros_gui ros:melodic-robot-bionic /bin/bash
     ```
 - GUIを用いるので、Dockerのページを復習し、必要な設定を行う。
-  - <span style="color: #CC0066;">Windowsで使用するソフトウェアを「Xming」から「VcXsrv」に変更しました。</span>
+  - <span style="color: #CC0066;">Windowsで使用するソフトウェアを「Xming」から「VcXsrv」に変更する？</span>
 
 # シミュレーションの準備
 - 関連があるROSパッケージをインストールする。
