@@ -28,11 +28,11 @@
   ```
 - 下記の1行を</launch>タグの前に追記し、保存してください。
   ```
-  <node pkg="mouse_teleop" type="mouse_teleop" name="mouse_teleop" />
+  <node pkg="mouse_teleop" type="mouse_teleop.py" name="mouse_teleop" />
   ```
 - 実行してみます。
   ```
-  $ roslaunch advanced_experiment turtle_mouse.launch
+  $ roslaunch advanced_experiment turtle_mouse.launch --screen
   ```
   - これだけだとマウスでロボットを操作することができません。トピック名が合っていないためです。ノード同士の繋がりを確認してみましょう。
     ```
