@@ -40,7 +40,7 @@
     ```
 - ノードを起動する時にトピック名を変更します。下記の通り、修正してください。
   ```
-  <node pkg="mouse_teleop" type="mouse_teleop" name="mouse_teleop">
+  <node pkg="mouse_teleop" type="mouse_teleop.py" name="mouse_teleop">
     <remap from="mouse_vel" to="/turtle1/cmd_vel"/>
   </node>
   ```
