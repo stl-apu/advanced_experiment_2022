@@ -50,6 +50,8 @@
   > docker container run -itd -e DISPLAY=IPアドレス:0.0 -v ~/.Xauthority:/root/.Xauthority --name コンテナー名 イメージ名 /bin/bash
   《実例》
   > docker container run -itd -e DISPLAY=172.31.2.23:0.0 -v ~/.Xauthority:/root/.Xauthority --name ubuntu ubuntu:18.04 /bin/bash
+  ↓　変更（特別なDNS「host.docker.internal」を用いてコンテナーを作成します。）
+  > docker container run -itd -e DISPLAY=host.docker.internal:0.0 -v ~/.Xauthority:/root/.Xauthority --name ubuntu ubuntu:18.04 /bin/bash
   ```
 - コンテナー「ubuntu」が存在することを確認する。
   ```

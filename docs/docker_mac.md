@@ -16,6 +16,18 @@
   - https://www.xquartz.org/
 - XQuartzを起動し、［環境設定］→［セキュリティ］から［ネットワーク・クライアントからの接続を許可］にチェックを入れる。
 - コンピューターを再起動する。
+- アクセス制限を設定する。
+  ```
+  % xhost -
+  ```
+- localhostだけ許可する。
+  ```
+  % xhost +localhost
+  ```
+- localhostだけが許可されていることを確認する。
+  ```
+  % xhost
+  ```
 - 再度、XQuartzを起動する。
 
 ## イメージのダウンロード
@@ -32,6 +44,8 @@
 - イメージを用いてコンテナーを作成し、起動する。オプションnameでコンテナーに対して名前（例：ubuntu）を付けておく。
   ```
   % docker container run -itd -e DISPLAY=$(hostname):0 -v ~/.Xauthority:/root/.Xauthority --name ubuntu ubuntu:18.04 /bin/bash
+  ↓　変更（特別なDNS「host.docker.internal」を用いてコンテナーを作成します。）
+  % docker container run -itd -e DISPLAY=host.docker.internal:0 --name ubuntu ubuntu:18.04 /bin/bash
   ```
 - コンテナー「ubuntu」が存在することを確認する。
   ```
