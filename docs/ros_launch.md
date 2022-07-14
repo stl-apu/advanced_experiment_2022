@@ -48,9 +48,9 @@
 - ROSパラメーターも設定してみましょう。
 - 下記の3行をturtlesim_nodeを起動する<node>タグに追記し、保存してください。
   ```
-  <param name="/turtlesim/background_r" value="255"/>
-  <param name="/turtlesim/background_g" value="255"/>
-  <param name="/turtlesim/background_b" value="255"/>
+  <param name="background_r" value="255"/>
+  <param name="background_g" value="255"/>
+  <param name="background_b" value="255"/>
   ```
 - シミュレーターの背景が白になったと思います。
 - 以上のように、ノード名を変更したりパラメーターを設定したりすることで、複数のノードを連携可能な状態で起動することができます。
