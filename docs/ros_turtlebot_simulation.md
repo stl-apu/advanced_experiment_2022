@@ -8,7 +8,7 @@
   《Windows》
   > docker run -it -e DISPLAY=IPアドレス:0.0 -v ~/.Xauthority:/root/.Xauthority --name ros_gui ros:melodic-robot-bionic /bin/bash
   ```
-  - MacはOpenGLに起因するエラーでRVizが起動しない？→急遽、VNCで対応した。
+  - MacはOpenGLに起因するエラーでRVizが起動しない？→VNC！
     ```
     《Mac》
     % docker run -it -e DISPLAY=$(hostname):0 -v ~/.Xauthority:/root/.Xauthority --name ros_gui ros:melodic-robot-bionic /bin/bash
