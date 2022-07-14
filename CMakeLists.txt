@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 	genmsg
 	sensor_msgs
 	geometry_msgs
+	mouse_teleop
 )
 
 catkin_package()
