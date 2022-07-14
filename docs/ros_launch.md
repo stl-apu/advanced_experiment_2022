@@ -14,7 +14,7 @@
   《実例》
   $ roslaunch advanced_experiment turtle_test.launch
   ```
-  - screenオプションを付けると、roslaunchの実行状況を確認できるようになります。
+  - screenオプションを付けると、ノードの出力（ROS_INFOなど）を確認できるようになります。
   ```
   $ roslaunch advanced_experiment turtle_test.launch --screen
   ```
