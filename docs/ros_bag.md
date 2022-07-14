@@ -7,7 +7,7 @@
 ## 記録
 - 記録したいノードを立ち上げます。
   ```
-  $ roslaunch advanced_experiment turtle_test.launch
+  $ roslaunch advanced_experiment turtle_mouse.launch --screen
   ```
 - トピックの一覧を確認します。
   ```
