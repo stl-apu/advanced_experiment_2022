@@ -3,7 +3,7 @@
 ## Dockerコンテナーの作成
 - GUIに対応したROS用のDockerコンテナーを作成する。
   ```
-  docker run -p 8080:80 --shm-size=512m tiryoh/ros-desktop-vnc:melodic
+  % docker run -p 8080:80 --shm-size=512m tiryoh/ros-desktop-vnc:melodic
   ```
 - ウェブブラウザーを開き、下記のURLでアクセスする。
   - http://localhost:8080
@@ -41,7 +41,7 @@
   ```
   # roslaunch turtlebot3_fake turtlebot3_fake.launch
   ```
-  - 別のシミュレーターを起動するときは終了する。同時に起動しているシミュレーターは1つとなるように注意する。
+  - 別のシミュレーターを起動するときは終了する。同時に起動しているシミュレーターは1つのみとなるように注意する。
 
 ### 2つ目
 - 制御用のROSノードを起動する。
@@ -66,7 +66,7 @@
 - 物理演算エンジンにより、仮想的に画像を取得したり、障害物との衝突判定を行ったり、実機に近いシミュレーションを実施することができる。
 - センサーから取得される仮想的なデータはRVizで確認することができる。
   ```
-  # roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+  # rviz
   ```
 
 [このページのトップへ](#)

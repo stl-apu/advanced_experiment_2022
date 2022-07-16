@@ -6,15 +6,9 @@
   《Ubuntu》
   $ docker run -it -e="DISPLAY" -e="QT_X11_NO_MITSHM=1" -v="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name ros_gui ros:melodic-robot-bionic /bin/bash
   《Windows》
-  > docker run -it -e DISPLAY=IPアドレス:0.0 -v ~/.Xauthority:/root/.Xauthority --name ros_gui ros:melodic-robot-bionic /bin/bash
+  > docker run -it -e DISPLAY=host.docker.internal:0 --name ros_gui ros:melodic-robot-bionic /bin/bash
   ```
-  - MacはOpenGLに起因するエラーでRVizが起動しない？→VNC！
-    ```
-    《Mac》
-    % docker run -it -e DISPLAY=$(hostname):0 -v ~/.Xauthority:/root/.Xauthority --name ros_gui ros:melodic-robot-bionic /bin/bash
-    ```
 - GUIを用いるので、Dockerのページを復習し、必要な設定を行う。
-  - <span style="color: #CC0066;">Windowsで使用するソフトウェアを「Xming」から「VcXsrv」に変更する？</span>
 
 # シミュレーションの準備
 - 関連があるROSパッケージをインストールする。
@@ -52,7 +46,7 @@
   ```
   # roslaunch turtlebot3_fake turtlebot3_fake.launch
   ```
-  - 別のシミュレーターを起動するときは終了する。同時に起動しているシミュレーターは1つとなるように注意する。
+  - 別のシミュレーターを起動するときは終了する。同時に起動しているシミュレーターは1つのみとなるように注意する。
 
 ### 2つ目
 - 基本となる環境変数を設定する。
@@ -86,7 +80,8 @@
 - 物理演算エンジンにより、仮想的に画像を取得したり、障害物との衝突判定を行ったり、実機に近いシミュレーションを実施することができる。
 - センサーから取得される仮想的なデータはRVizで確認することができる。
   ```
-  # roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+  # source /ros_entrypoint.sh
+  # rviz
   ```
 
 [このページのトップへ](#)
