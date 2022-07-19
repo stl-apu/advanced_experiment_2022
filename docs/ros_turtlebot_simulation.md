@@ -50,7 +50,6 @@
   ```
   # roslaunch turtlebot3_fake turtlebot3_fake.launch
   ```
-  - 別のシミュレーターを起動するときは終了する。同時に起動しているシミュレーターは1つのみとなるように注意する。
 
 ### 2つ目
 - 基本となる環境変数を設定する。
@@ -61,16 +60,22 @@
   ```
   # roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
   ```
-- wキーやxキーでロボットを操作できる。
+  - wキーやxキーでロボットを操作できる。
 
 
 ## 付録：物理演算エンジン付きシミュレーター
+- 必要なパッケージをインストールする。
+  ```
+  $ sudo apt -y install ros-melodic-gazebo-ros-pkgs
+  ```
+- ターミナルを3つ使用する。
+
 ### 1つ目の代わり
 - 基本となる環境変数を設定する。
   ```
   # source /ros_entrypoint.sh
   ```
-- 物理演算エンジンが付いたシミュレーターを起動する。
+- 物理演算エンジンが付いたシミュレーター（Gazebo）を起動する。
   ```
   # roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
   や

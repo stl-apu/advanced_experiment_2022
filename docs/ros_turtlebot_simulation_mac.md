@@ -49,7 +49,7 @@
   ```
   # roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
   ```
-- wキーやxキーでロボットを操作できる。
+  - wキーやxキーでロボットを操作できる。
 
 ## 付録：物理演算エンジン付きシミュレーター
 - ターミナルを3つ使用する。
