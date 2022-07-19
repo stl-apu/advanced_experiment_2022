@@ -8,6 +8,10 @@
   《Windows》
   > docker run -it -e DISPLAY=host.docker.internal:0 --name ros_gui ros:melodic-robot-bionic /bin/bash
   ```
+  - 再度コンテナーに入る時は、
+    ```
+    $ docker container exec -it ros_gui /bin/bash
+    ```
 - GUIを用いるので、Dockerのページを復習し、必要な設定を行う。
 
 # シミュレーションの準備
