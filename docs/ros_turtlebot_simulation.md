@@ -66,7 +66,7 @@
 ## 付録：物理演算エンジン付きシミュレーター
 - 必要なパッケージをインストールする。
   ```
-  $ sudo apt -y install ros-melodic-gazebo-ros-pkgs
+  # sudo apt -y install ros-melodic-gazebo-ros-pkgs
   ```
 - ターミナルを3つ使用する。
 
